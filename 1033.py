@@ -1,13 +1,13 @@
 def gcd(a,b):
-    while (b != 0) :
-        c = a % b
-        a = b
-        b = c
-    return a
+    if(b==0):
+        return a
+    return gcd(b,a%b)
 
-a,b=map(int,input().split())
-for i in range(a,b+1):
-    for j in range(a,b+1):
-        for k in range(a,b+1):
-            if(gcd(i,k)==1 and gcd(i,j)==1 and gcd(j,k)==1):
-                print("("+i+","+j+","+k)
+s=input().split()
+a=int(s[0])
+b=int(s[len(s)-1])
+for i in range(a,b-1):
+    for j in range(i+1,b):
+        for k in range(j+1,b+1):
+            if gcd(i,j)==gcd(j,k)==gcd(i,k)==1:
+                print((i,j,k))

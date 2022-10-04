@@ -1,12 +1,20 @@
-def kt(s):
-    s1=""
-    l=len(s)
-    cnt=1
-    for i in range(0,l-1):
-        if(s[i]==s[i+1]):
-            cnt=cnt+1
-        s1=str(cnt)+s[i]
-    return s1
+t = int(input())
 
-s=str(input())
+def solve(s):
+    cnt = 1
+    l = len(s)
+    for i in range(1, l):
+        if s[i] != s[i - 1]:
+            print(cnt, end = '')
+            print(s[i - 1], end = '')
+            cnt = 1
+        else:
+            cnt += 1
+    print(cnt, end = '')
+    print(s[l - 1])
 
+
+while t > 0:
+    s = input()
+    solve(s)
+    t -= 1
